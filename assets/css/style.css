@@ -645,6 +645,7 @@ input.palabra-look {
         bottom: 120px;
         right: 40px;
         flex-direction: row-reverse;
+        z-index: 1;
     }
     .buscador-responsive .span-look {
         width: 66px;
@@ -684,5 +685,22 @@ input.palabra-look {
 @media (max-width: 475px){
     .contenido-izq {
         width: 100%;
+    }
+    .buscador-responsive {
+        width: 300px;
+        height: 45px;
+    }
+}
+
+@media (max-width: 389px){
+    .buscador-responsive {
+        width: 270px;
+        right: 20px;
+    }
+    .buscador-responsive input.palabra-look {
+        right: 4px;
+    }
+    .menu-boton{
+        right: 20px;
     }
 }

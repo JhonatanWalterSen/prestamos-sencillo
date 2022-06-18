@@ -1,6 +1,5 @@
 let prestamos = [];
 
-
 window.onload = () =>{
     const datosLocal = localStorage.getItem('Nombre')
     if(datosLocal===null){
@@ -12,6 +11,9 @@ window.onload = () =>{
         console.log(prestamos)
         aniadirUsuario()
         prestamosRender()
+        if (prestamos.length > 0) {
+            buscadorLogeado()
+        }
     }
 }
 
@@ -123,11 +125,11 @@ const limpiarCampos = () =>{
 }
 
 
+
 const prestamosRender = () =>{
 
-
     if(prestamos.length > 0){
-        
+        buscadorLogeado()
     const divDatos = document.getElementById('PrestamosHechos')
         let html ="";
         prestamos.forEach(prestamo =>{
@@ -155,8 +157,6 @@ const prestamosRender = () =>{
         }) 
         divDatos.innerHTML=html;
     }
-    /* console.log(prestamos); */
-
     borrarPrestamos()
     buscadorPrestamos()
     
@@ -226,11 +226,11 @@ mostrarBuscador();
 
 const buscadorPrestamos = () =>{
     const resultado = document.querySelector('#PrestamosHechos'); 
-    resultado.innerHTML += ``;
+    
     document.querySelector('#texto-responsive').addEventListener('keyup',()=>{
         let texto = document.querySelector('#texto-responsive').value.toLowerCase(); 
         console.log(texto);
-
+        resultado.innerHTML = ``;
         for (const prestamo of prestamos) {
             let nombre = prestamo.cliente.toLowerCase()
             console.log(nombre)
@@ -255,9 +255,20 @@ const buscadorPrestamos = () =>{
                     <span class ="borrarPrestamo">X</span>
                 </div>
             `
+            }else{
+                resultado.innerHTML += `
+                <div class="cards cardsprestamos">
+                    <div class="fondoTitulo ">
+                        <p>No se encontraton datos</p>
+                    </div>
+                </div>
+            `
             }
-            
         }
+        borrarPrestamos()
     })
 }
 
+const buscadorLogeado = ()=>{
+    document.querySelector('.buscador-responsive').style="display: flex"
+}
