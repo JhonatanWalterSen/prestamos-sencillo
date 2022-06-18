@@ -67,6 +67,7 @@ const aniadirDatosPrestamo = () =>{
 
             btnPrestamo.addEventListener('click',(e)=>{
                 e.preventDefault();
+
                 let clienteNombre = document.getElementById('clienteNombre').value;
                 let clienteApellidos = document.getElementById('clienteApellidos').value;
                 let telf = document.getElementById('telf').value;
@@ -155,20 +156,18 @@ const prestamosRender = () =>{
         divDatos.innerHTML=html;
     }
     /* console.log(prestamos); */
-    
+
     borrarPrestamos()
+    buscadorPrestamos()
     
 }
 
 function borrarPrestamos(){
 
     const equis = document.querySelectorAll('.borrarPrestamo')  
-    /* swal("¿Estás seguro de borrar?", {
-        buttons: ["No", true],
-    }); */
+    
     equis.forEach( function(element,index,value){
         element.addEventListener(`click`,function(){
-
             console.log(element.parentNode.id);
             let NuevoPrestamos = prestamos.filter(prestamo => prestamo.id != element.parentNode.id)
             console.log("Nuevo Objeto Prestamos",NuevoPrestamos);
@@ -203,10 +202,62 @@ const hamburguerChck = () =>{
     let hamb = document.querySelector('.menu-boton')
     let nav = document.querySelector('nav')
     let lineOne = document.querySelector('.lineaUno')
+    let lineDos = document.querySelector('.lineaDos')
+    let lineTres = document.querySelector('.lineaTres')
     hamb.addEventListener('click',()=> {
         nav.classList.toggle('retirar-menu')
         lineOne.classList.toggle('cambio-lineaUno')
+        lineDos.classList.toggle('cambio-lineaDos')
+        lineTres.classList.toggle('cambio-lineaTres')
     })
 }
 
 hamburguerChck()
+
+const mostrarBuscador = () =>{
+    const mostrarLook = document.querySelector('.buscador-responsive .span-look')
+    mostrarLook.addEventListener('click', () =>{
+        let abrir = document.querySelector('.buscador-responsive input.palabra-look')
+        abrir.classList.toggle('mostrarbuscador') 
+    })
+}
+
+mostrarBuscador();
+
+const buscadorPrestamos = () =>{
+    const resultado = document.querySelector('#PrestamosHechos'); 
+    resultado.innerHTML += ``;
+    document.querySelector('#texto-responsive').addEventListener('keyup',()=>{
+        let texto = document.querySelector('#texto-responsive').value.toLowerCase(); 
+        console.log(texto);
+
+        for (const prestamo of prestamos) {
+            let nombre = prestamo.cliente.toLowerCase()
+            console.log(nombre)
+            if (nombre.indexOf(texto) !== -1) {
+                resultado.innerHTML += `
+                <div id="${prestamo.id}" class="cards cardsprestamos">
+                    <div class="fondoTitulo ">
+                        <p >${prestamo.cliente}</p>
+                        <p>${prestamo.clienteApe}</p>
+                    </div>
+
+                    <div class="montoPrestado ">
+                        <p >${prestamo.total}</p>
+                        <p >TOTAL: ${prestamo.montoConInteres}</p>
+                        <p>Interés: ${prestamo.interes} %</p>
+                    </div>
+
+                    <div>
+                        <p>Cuota por Mes: ${prestamo.cuotasPorMes} </p>
+                        <p>Número de Cuotas: ${prestamo.cuotas} </p>
+                    </div>
+                    <span class ="borrarPrestamo">X</span>
+                </div>
+            `
+            }
+            
+        }
+    })
+}
+
