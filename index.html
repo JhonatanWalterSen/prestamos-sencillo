@@ -14,16 +14,16 @@
 <body>
     <nav>
         <div class="container-">
-            <ul>
+            <ul class="list-a">
                 <li><a href="#">Menú</a></li>
                 <li><a href="#info">Información & Beneficios</a> </li>
                 <li><a href="#instrucciones">Instrucciones</a></li>
                 <li><a href="#prestamos">Realizar un Préstamo</a></li>
-                <li id="nombrePrestamista"></li>
+                <!-- <li id="nombrePrestamista"></li> -->
             </ul>
         </div>
     </nav>
-    <section class="primera-seccion">        
+    <section class="primera-seccion">
         <div class="container-">
             <div class="flex">
                 <div class="contenido-izq">
@@ -43,21 +43,15 @@
     </section>
 
 
-    <svg id="wave" style="transform:rotate(0deg); transition: 0.3s" viewBox="0 0 1440 100" version="1.1" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="sw-gradient-0" x1="0" x2="0" y1="1" y2="0"><stop stop-color="rgba(17, 78, 156, 1)" offset="0%"></stop><stop stop-color="rgba(17, 78, 156, 1)" offset="100%"></stop></linearGradient></defs><path style="transform:translate(0, 0px); opacity:1" fill="url(#sw-gradient-0)" d="M0,30L18.5,26.7C36.9,23,74,17,111,26.7C147.7,37,185,63,222,73.3C258.5,83,295,77,332,71.7C369.2,67,406,63,443,51.7C480,40,517,20,554,25C590.8,30,628,60,665,65C701.5,70,738,50,775,38.3C812.3,27,849,23,886,30C923.1,37,960,53,997,60C1033.8,67,1071,63,1108,53.3C1144.6,43,1182,27,1218,18.3C1255.4,10,1292,10,1329,15C1366.2,20,1403,30,1440,41.7C1476.9,53,1514,67,1551,68.3C1587.7,70,1625,60,1662,50C1698.5,40,1735,30,1772,35C1809.2,40,1846,60,1883,61.7C1920,63,1957,47,1994,36.7C2030.8,27,2068,23,2105,21.7C2141.5,20,2178,20,2215,30C2252.3,40,2289,60,2326,60C2363.1,60,2400,40,2437,35C2473.8,30,2511,40,2548,43.3C2584.6,47,2622,43,2640,41.7L2658.5,40L2658.5,100L2640,100C2621.5,100,2585,100,2548,100C2510.8,100,2474,100,2437,100C2400,100,2363,100,2326,100C2289.2,100,2252,100,2215,100C2178.5,100,2142,100,2105,100C2067.7,100,2031,100,1994,100C1956.9,100,1920,100,1883,100C1846.2,100,1809,100,1772,100C1735.4,100,1698,100,1662,100C1624.6,100,1588,100,1551,100C1513.8,100,1477,100,1440,100C1403.1,100,1366,100,1329,100C1292.3,100,1255,100,1218,100C1181.5,100,1145,100,1108,100C1070.8,100,1034,100,997,100C960,100,923,100,886,100C849.2,100,812,100,775,100C738.5,100,702,100,665,100C627.7,100,591,100,554,100C516.9,100,480,100,443,100C406.2,100,369,100,332,100C295.4,100,258,100,222,100C184.6,100,148,100,111,100C73.8,100,37,100,18,100L0,100Z"></path></svg>
-    
-    
+    <div class="ondas" style="height: 150px; overflow: hidden; background: #fff;" ><svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;"><path d="M0.00,49.99 C150.00,150.00 349.20,-49.99 500.00,49.99 L500.00,150.00 L0.00,150.00 Z" style="stroke: none; fill: #114e9c;"></path></svg></div>
+
     <section id="info" class="informacion">
         <div class="container-">
             <div class="titutlo-info">
                 <h1>INFORMACIÓN & BENEFICIOS</h1>
             </div>
-            
             <div class="subtitulo-info">
                 <p>¿Que debes hacer?</p>
-                <div class="simbolos">
-                    <span></span>
-                    <span></span>
-                </div>
             </div>
 
             <div class="contenido-cards">
@@ -86,7 +80,8 @@
 
         </div>
     </section>
-    <svg id="wave" style="transform:rotate(180deg); transition: 0.3s" viewBox="0 0 1440 140" version="1.1" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="sw-gradient-0" x1="0" x2="0" y1="1" y2="0"><stop stop-color="rgba(17, 78, 156, 1)" offset="0%"></stop><stop stop-color="rgba(17, 78, 156, 1)" offset="100%"></stop></linearGradient></defs><path style="transform:translate(0, 0px); opacity:1" fill="url(#sw-gradient-0)" d="M0,42L24,39.7C48,37,96,33,144,42C192,51,240,75,288,72.3C336,70,384,42,432,30.3C480,19,528,23,576,32.7C624,42,672,56,720,60.7C768,65,816,61,864,51.3C912,42,960,28,1008,35C1056,42,1104,70,1152,81.7C1200,93,1248,89,1296,81.7C1344,75,1392,65,1440,51.3C1488,37,1536,19,1584,16.3C1632,14,1680,28,1728,46.7C1776,65,1824,89,1872,86.3C1920,84,1968,56,2016,37.3C2064,19,2112,9,2160,18.7C2208,28,2256,56,2304,74.7C2352,93,2400,103,2448,91C2496,79,2544,47,2592,32.7C2640,19,2688,23,2736,42C2784,61,2832,93,2880,107.3C2928,121,2976,117,3024,95.7C3072,75,3120,37,3168,32.7C3216,28,3264,56,3312,77C3360,98,3408,112,3432,119L3456,126L3456,140L3432,140C3408,140,3360,140,3312,140C3264,140,3216,140,3168,140C3120,140,3072,140,3024,140C2976,140,2928,140,2880,140C2832,140,2784,140,2736,140C2688,140,2640,140,2592,140C2544,140,2496,140,2448,140C2400,140,2352,140,2304,140C2256,140,2208,140,2160,140C2112,140,2064,140,2016,140C1968,140,1920,140,1872,140C1824,140,1776,140,1728,140C1680,140,1632,140,1584,140C1536,140,1488,140,1440,140C1392,140,1344,140,1296,140C1248,140,1200,140,1152,140C1104,140,1056,140,1008,140C960,140,912,140,864,140C816,140,768,140,720,140C672,140,624,140,576,140C528,140,480,140,432,140C384,140,336,140,288,140C240,140,192,140,144,140C96,140,48,140,24,140L0,140Z"></path></svg>
+
+    <div class="ondas" style="height: 150px; overflow: hidden; background: #fff;" ><svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;"><path d="M0.00,49.99 C150.00,150.00 271.49,-49.99 500.00,49.99 L500.00,0.00 L0.00,0.00 Z" style="stroke: none; fill: #114e9c;"></path></svg></div>
 
     <section id="instrucciones" class="seccion-intrucciones">
         <div class="container-">
@@ -129,7 +124,6 @@
                     </div>
                 </div>
             </div>
-                
         </div>
     </section>
 
@@ -157,31 +151,30 @@
                 <div>
                     <label for="telf">Número teléfonico</label>
                     <input type="text" name="telf" id="telf">
-                </div>  
+                </div>
 
                 <div>
                     <label for="montoTotal">Monto a prestar</label>
                     <input type="number" name="montoTotal" id="montoTotal">
-                </div> 
+                </div>
 
                 <div>
                     <label for="interes">Interés (%)</label>
                     <input type="number" name="interes" id="interes">
-                </div>  
+                </div>
 
                 <div>
                     <label for="cuotas">Cantidad de Cuotas</label>
                     <input type="number" name="cuotas" id="cuotas">
-                </div>  
+                </div>
                 <div>
                     <button id="prestamo">Añadir un Prestamo</button>
                 </div>
             </div>
     </div>
 
-    <section class="container- ">
-        <h1 class="center">Clientes que se dieron préstamos</h1>
-        
+    <section class="container- prestamos_titulo">
+        <!-- <h1 class="center">Clientes que se dieron préstamos</h1> -->
     </section>
 
     <div class=" buscador-responsive">
@@ -189,11 +182,8 @@
     </div>
 
     <section class="container- margin-top-bottom seccion-prestamos">
-        <!-- <div class="buscador">
-            <input class="palabra-look" type="text" placeholder="Buscar..."><span class="span-look"><img class="look" src="assets/images/look.png" alt=""></span>
-        </div> -->
         <div id="PrestamosHechos"  class="container- contenido-cards">
-            
+
         </div>
     </section>
 
@@ -205,15 +195,12 @@
         </div>
     </div>
 
-    
-
     <footer>
         <div class="container-">
             <div class="logo-sociales">
                 <div class="logo-footer"><img src="assets/images/iconosf.png" alt=""></div>
                 <div class="redes">
                     <a href="https://github.com/JhonatanWalterSen" target="_blank"><img src="assets/images/git_icon.png" alt=""></a>
-                    <a href="https://wa.me/930692695" target="_blank"><img src="assets/images/wa_icon.png" alt=""></a>
                     <a href="https://www.linkedin.com/in/jhonatan-ariza-quispe/" target="_blank"><img src="assets/images/ld_icon.png" alt=""></a>
                 </div>
             </div>
@@ -221,13 +208,13 @@
 
             </div>
             <div class="copy">
-                <p>&copy; 2022 Presta dinero altoque | Jhonatan Ariza | Lima, Perú</p>
+                <p>&copy; 2022 Presta dinero altoque y cotiza tus ganancias | Jhonatan Ariza | Lima, Perú</p>
             </div>
         </div>
     </footer>
 
 
-    
+
     <script src="assets/js/carrusel-jquery.min.js"></script>
     <script src="assets/js/carrusel_owl.carousel.min.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>

@@ -6,28 +6,34 @@
     box-sizing: border-box;
     scroll-behavior: smooth;
 }
+
 .primera-seccion{
     margin-top: 40px;
 }
+
 nav,section{
     width: 100%;
     height: 100%;
 }
+
 nav{
     background-color: #114E9C;
     color: white;
 }
+
 li a{
     text-decoration: none;
     outline: none;
     color: white;
 }
+
 nav .container- ul{
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     list-style: none;
     text-align: center;
 }
+
 nav .container- ul li{
     padding: 15px 20px;
     display: flex;
@@ -37,13 +43,13 @@ nav .container- ul li{
 img{
     width: 100%;
 }
-
 .container-{
     max-width: 1140px;
     height: 100%;
     margin-left: auto;
     margin-right: auto;
 }
+
 #wave{
     display: block;
 }
@@ -57,15 +63,17 @@ img{
     width: 50%;
     position: relative;
 }
+
 .item{
     position: relative;
 }
+
 .logo{
     width: 250px;
     margin: auto;
 }
 
-/* Carrusel */
+/* INICIO CARRUSEL */
 
 .owl-theme .owl-dots .owl-dot.active span,
 .owl-theme .owl-dots .owl-dot:hover span {
@@ -76,6 +84,7 @@ img{
 .owl-carousel button.owl-dot{
     background: transparent !important;
 }
+
 .owl-nav{
     display: none;
 }
@@ -87,46 +96,19 @@ img{
     margin: 0px !important;
     border-radius: 0px !important;
 }
-
-
 /* FIN CARRUSEL */
 
 .informacion{
     background-color: #114E9C;
     color: white;
     padding: 30px 0px;
-    
 }
 .subtitulo-info{
     display: flex;
     width: 100%;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
 }
-.simbolos{
-    display: flex;
-    width: 80%;
-    justify-content: space-between;align-items: center;
-}
-
-.simbolos span:nth-child(1)::before{
-    content: '';
-    width: 150px;
-    height: 3px;
-    background-color: #FCB831;
-    border-radius: 26px;
-    position: absolute;
-}
-
-.simbolos span:nth-child(2)::before{
-    content: '';
-    width: 40px;
-    height: 40px;
-    background-color: #FCB831;
-    border-radius: 50%;
-    position: absolute;
-}
-
 .contenido-cards{
     display: flex;
     justify-content: space-around;
@@ -217,7 +199,7 @@ img{
     margin-right: auto;
 }
 .pasos p{
-    padding: 15px 0px; 
+    padding: 15px 0px;
     font-size: 20px;
 }
 .pasos p:hover{
@@ -272,7 +254,8 @@ img{
 /* footer */
 .logo-sociales{
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
     padding: 20px 0px;
 }
@@ -306,7 +289,20 @@ footer{
     border: 1px solid #3e549a;
     text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.3);
 }
+.swal-button--cancel{
+    background-color: red;
+    color: white;
+    border: red;
+}
 
+.swal-button--cancel:hover{
+    background-color: red !important;
+
+}
+
+.swal-button--confirm:hover{
+    background-color:#114E9C !important;
+}
 #nombrePrestamista span{
     margin-right: 5px;
     color: #FCB831;
@@ -415,7 +411,6 @@ footer{
 }
 
 .cardsprestamos:hover::before{
-    
     background-color: #FCB831;
     transition: 1s;
 }
@@ -456,7 +451,13 @@ input.palabra-look {
     background: #114e9c;
 }
 .buscador-responsive{
-    display: none;
+    
+}
+.titutlo-info{
+    text-align: center;
+}
+.pd-b-25{
+    padding-bottom: 25px;
 }
 
 @media (max-width: 1270px){
@@ -489,9 +490,7 @@ input.palabra-look {
         align-items: center;
         flex-direction: column-reverse;
     }
-    .titutlo-info{
-        text-align: center;
-    }
+    
 
     .subtitulo-info {
         display: block;

@@ -2,18 +2,16 @@ let prestamos = [];
 
 window.onload = () =>{
     const datosLocal = localStorage.getItem('Nombre')
-    if(datosLocal===null){
-        console.error('No hay datos del Prestamista'); 
-    } else{
-        console.warn('Si hay datos del Prestamista');  
+    if(datosLocal!==null){
+        console.warn('Si hay datos del Prestamista');
         formOut()
         prestamos = JSON.parse(localStorage.getItem('prestamos')) || [];
         console.log(prestamos)
         aniadirUsuario()
         prestamosRender()
-        if (prestamos.length > 0) {
+        /* if (prestamos.length > 0) {
             buscadorLogeado()
-        }
+        } */
     }
 }
 
@@ -21,13 +19,18 @@ const formOut = () =>  setTimeout(function() {
     document.getElementById("seccion-prestamista-datos").style = "display: none"
     document.getElementById("prestamos").style = "display: block"
     document.querySelector(".seccion-prestamos").style = "display: block"
-}, 1200);
+}, 100);
 
 const aniadirUsuario= ()=>{
-    const saludo = document.createElement('span')
-    const datosLocal = localStorage.getItem('Nombre')
+    const nodeLi = document.createElement('li');
+        nodeLi.id ="nombrePrestamista";
+    const saludo = document.createElement('span'),
+        li_span = document.querySelector('.list-a').appendChild(nodeLi);
+        li_span.appendChild(saludo),
+        datosLocal = localStorage.getItem('Nombre')
     const lia = document.createElement('a')
-    lia.innerText =datosLocal;
+        lia.innerText = datosLocal;
+
     document.getElementById('nombrePrestamista').appendChild(saludo).innerText='Hola'
     document.getElementById('nombrePrestamista').appendChild(lia)
 }
@@ -56,9 +59,9 @@ const aniadirDatos = () =>{
                 localStorage.setItem('Apellidos',apellidos)
                 localStorage.setItem('Correo',email)
                 localStorage.setItem('telefono',tel)
-                formOut() 
+                formOut()
                 aniadirUsuario()
-        }       
+        }
     })
 }
 aniadirDatos();
@@ -129,11 +132,16 @@ const limpiarCampos = () =>{
 const prestamosRender = () =>{
 
     if(prestamos.length > 0){
-        buscadorLogeado()
-    const divDatos = document.getElementById('PrestamosHechos')
+        /* buscadorLogeado() */
+        const sec_titulo = document.querySelector('.prestamos_titulo');
+        const titulo = document.createElement('h2');
+            titulo.classList.add('center','pd-b-25')
+            titulo.innerText='Clientes que se dieron préstamos'
+        const divDatos = document.getElementById('PrestamosHechos')
         let html ="";
         prestamos.forEach(prestamo =>{
             const {cliente,interes,clienteApe,id,cuotas,cuotasPorMes,montoConInteres,tel,total} = prestamo;
+            sec_titulo.appendChild(titulo)
             html +=`
             <div id="${id}" class="cards cardsprestamos">
                 <div class="fondoTitulo ">
@@ -154,32 +162,38 @@ const prestamosRender = () =>{
                 <span class ="borrarPrestamo">X</span>
             </div>
         `
-        }) 
+        })
         divDatos.innerHTML=html;
     }
     borrarPrestamos()
     buscadorPrestamos()
-    
 }
 
 function borrarPrestamos(){
-
-    const equis = document.querySelectorAll('.borrarPrestamo')  
+    const equis = document.querySelectorAll('.borrarPrestamo')
     
-    equis.forEach( function(element,index,value){
+    equis.forEach( function(element){
+        console.log(element.parentNode);
+        /* console.log(element.parentNode.firstChild.nextSibling.firstChild.nextSibling.innerHTML); */
         element.addEventListener(`click`,function(){
-            console.log(element.parentNode.id);
-            let NuevoPrestamos = prestamos.filter(prestamo => prestamo.id != element.parentNode.id)
-            console.log("Nuevo Objeto Prestamos",NuevoPrestamos);
-            localStorage.setItem('prestamos', JSON.stringify(NuevoPrestamos)); 
-            if (NuevoPrestamos.length < prestamos.length) {
-                console.log(true);
-                location.reload()
-            } else{
-                console.log(false);
-                console.log(NuevoPrestamos.length);
-                console.log(prestamos.length);
-            }
+            /* const idAlmacenado = prestamos.filter(e => e.id === element.parentNode.id) && e.cliente; */
+            swal({
+                text: `¿Estas seguro de Eliminar a ${element.parentNode.firstChild.nextSibling.firstChild.nextSibling.innerHTML}?`,
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+            })
+            .then((willDelete) => {
+                if (willDelete) {
+                    let NuevoPrestamos = prestamos.filter(prestamo => prestamo.id != element.parentNode.id)
+                    localStorage.setItem('prestamos', JSON.stringify(NuevoPrestamos));
+                    location.reload();
+                    swal("Eliminado", {
+                        icon: "success",
+                    });
+                }
+                /* prestamosRender() */
+            });
         });
     });
 }
@@ -218,7 +232,7 @@ const mostrarBuscador = () =>{
     const mostrarLook = document.querySelector('.buscador-responsive .span-look')
     mostrarLook.addEventListener('click', () =>{
         let abrir = document.querySelector('.buscador-responsive input.palabra-look')
-        abrir.classList.toggle('mostrarbuscador') 
+        abrir.classList.toggle('mostrarbuscador')
     })
 }
 
@@ -226,14 +240,12 @@ mostrarBuscador();
 
 const buscadorPrestamos = () =>{
     const resultado = document.querySelector('#PrestamosHechos'); 
-    
     document.querySelector('#texto-responsive').addEventListener('keyup',()=>{
         let texto = document.querySelector('#texto-responsive').value.toLowerCase(); 
         console.log(texto);
         resultado.innerHTML = ``;
         for (const prestamo of prestamos) {
             let nombre = prestamo.cliente.toLowerCase()
-            console.log(nombre)
             if (nombre.indexOf(texto) !== -1) {
                 resultado.innerHTML += `
                 <div id="${prestamo.id}" class="cards cardsprestamos">
@@ -269,6 +281,7 @@ const buscadorPrestamos = () =>{
     })
 }
 
-const buscadorLogeado = ()=>{
+/* const buscadorLogeado = ()=>{
     document.querySelector('.buscador-responsive').style="display: flex"
 }
+ */
