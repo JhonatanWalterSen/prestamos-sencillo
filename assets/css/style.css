@@ -390,10 +390,6 @@ footer{
     font-weight: bold;
 }
 
-/* .cards.cardsprestamos:hover .fondoTitulo p{
-    color: white;
-} */
-
 .seccion-prestamos{
     display: none;
 }
@@ -450,9 +446,7 @@ input.palabra-look {
     border-radius: 25px;
     background: #114e9c;
 }
-.buscador-responsive{
-    
-}
+
 .titutlo-info{
     text-align: center;
 }
@@ -506,7 +500,6 @@ input.palabra-look {
     .simbolos span:nth-child(1)::before {
         display: none;
     }
-    
 }
 
 @media (max-width: 850px){
