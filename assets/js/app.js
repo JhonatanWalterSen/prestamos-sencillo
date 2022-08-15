@@ -9,10 +9,20 @@ window.onload = () =>{
         console.log(prestamos)
         aniadirUsuario()
         prestamosRender()
+        tituloPrestados()
         /* if (prestamos.length > 0) {
             buscadorLogeado()
         } */
     }
+}
+
+const tituloPrestados = () =>{
+    const sec_titulo = document.querySelector('.prestamos_titulo');
+    const titulo = document.createElement('h2');
+            titulo.classList.add('center','pd-b-25')
+            titulo.innerText='Clientes que se dieron préstamos'
+    sec_titulo.appendChild(titulo)
+
 }
 
 const formOut = () =>  setTimeout(function() {
@@ -69,7 +79,6 @@ aniadirDatos();
 //Datos para el prestamo
 const aniadirDatosPrestamo = () =>{
     const btnPrestamo = document.getElementById('prestamo')
-
             btnPrestamo.addEventListener('click',(e)=>{
                 e.preventDefault();
 
@@ -133,15 +142,10 @@ const prestamosRender = () =>{
 
     if(prestamos.length > 0){
         /* buscadorLogeado() */
-        const sec_titulo = document.querySelector('.prestamos_titulo');
-        const titulo = document.createElement('h2');
-            titulo.classList.add('center','pd-b-25')
-            titulo.innerText='Clientes que se dieron préstamos'
         const divDatos = document.getElementById('PrestamosHechos')
         let html ="";
         prestamos.forEach(prestamo =>{
             const {cliente,interes,clienteApe,id,cuotas,cuotasPorMes,montoConInteres,tel,total} = prestamo;
-            sec_titulo.appendChild(titulo)
             html +=`
             <div id="${id}" class="cards cardsprestamos">
                 <div class="fondoTitulo ">
@@ -268,7 +272,7 @@ const buscadorPrestamos = () =>{
                 </div>
             `
             }else{
-                resultado.innerHTML += `
+                resultado.innerHTML + `
                 <div class="cards cardsprestamos">
                     <div class="fondoTitulo ">
                         <p>No se encontraton datos</p>
@@ -281,7 +285,6 @@ const buscadorPrestamos = () =>{
     })
 }
 
-/* const buscadorLogeado = ()=>{
+const buscadorLogeado = ()=>{
     document.querySelector('.buscador-responsive').style="display: flex"
 }
- */
