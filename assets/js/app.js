@@ -3,16 +3,12 @@ let prestamos = [];
 window.onload = () =>{
     const datosLocal = localStorage.getItem('Nombre')
     if(datosLocal!==null){
-        console.warn('Si hay datos del Prestamista');
         formOut()
         prestamos = JSON.parse(localStorage.getItem('prestamos')) || [];
-        console.log(prestamos)
         aniadirUsuario()
         prestamosRender()
         tituloPrestados()
-        /* if (prestamos.length > 0) {
-            buscadorLogeado()
-        } */
+        buscadorLogeado()
     }
 }
 
@@ -45,7 +41,6 @@ const aniadirUsuario= ()=>{
     document.getElementById('nombrePrestamista').appendChild(lia)
 }
 
-// Datos personales
 const aniadirDatos = () =>{
     let datos = document.getElementById('aniadir')
 
@@ -175,12 +170,8 @@ const prestamosRender = () =>{
 
 function borrarPrestamos(){
     const equis = document.querySelectorAll('.borrarPrestamo')
-    
     equis.forEach( function(element){
-        console.log(element.parentNode);
-        /* console.log(element.parentNode.firstChild.nextSibling.firstChild.nextSibling.innerHTML); */
         element.addEventListener(`click`,function(){
-            /* const idAlmacenado = prestamos.filter(e => e.id === element.parentNode.id) && e.cliente; */
             swal({
                 text: `¿Estas seguro de Eliminar a ${element.parentNode.firstChild.nextSibling.firstChild.nextSibling.innerHTML}?`,
                 icon: "warning",
@@ -246,7 +237,6 @@ const buscadorPrestamos = () =>{
     const resultado = document.querySelector('#PrestamosHechos'); 
     document.querySelector('#texto-responsive').addEventListener('keyup',()=>{
         let texto = document.querySelector('#texto-responsive').value.toLowerCase(); 
-        console.log(texto);
         resultado.innerHTML = ``;
         for (const prestamo of prestamos) {
             let nombre = prestamo.cliente.toLowerCase()

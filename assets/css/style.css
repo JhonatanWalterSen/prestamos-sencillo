@@ -472,6 +472,9 @@ input.palabra-look {
         width: 250px;
     }
 }
+.buscador-responsive{
+    display: none;
+}
 
 
 @media (max-width: 1000px){
@@ -670,7 +673,9 @@ input.palabra-look {
     .mostrarbuscador{
         width: 100% !important;
     }
-
+    .buscador-responsive{
+        display: none;
+    }
 }
 
 @media (max-width: 625px){
