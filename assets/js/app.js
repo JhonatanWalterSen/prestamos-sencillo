@@ -9,16 +9,22 @@ window.onload = () =>{
         prestamosRender()
         tituloPrestados()
         buscadorLogeado()
+        validarusuario()
     }
+    console.log(prestamos);
+    console.log(datosLocal);
 }
 
 const tituloPrestados = () =>{
     const sec_titulo = document.querySelector('.prestamos_titulo');
     const titulo = document.createElement('h2');
-            titulo.classList.add('center','pd-b-25')
-            titulo.innerText='Clientes que se dieron préstamos'
-    sec_titulo.appendChild(titulo)
+    titulo.classList.add('center','pd-b-25')
 
+    prestamos.length === 0
+    ? titulo.textContent = 'Aún no se realizan prestamos'
+    : titulo.textContent = 'Préstamos realizados'
+
+    sec_titulo.appendChild(titulo)
 }
 
 const formOut = () =>  setTimeout(function() {
@@ -66,6 +72,8 @@ const aniadirDatos = () =>{
                 localStorage.setItem('telefono',tel)
                 formOut()
                 aniadirUsuario()
+                validarusuario()
+                tituloPrestados()
         }
     })
 }
@@ -163,6 +171,8 @@ const prestamosRender = () =>{
         `
         })
         divDatos.innerHTML=html;
+        tituloPrestados()
+        borrarClonTitulo()
     }
     borrarPrestamos()
     buscadorPrestamos()
@@ -187,9 +197,15 @@ function borrarPrestamos(){
                         icon: "success",
                     });
                 }
-                /* prestamosRender() */
             });
         });
+    });
+}
+
+function borrarClonTitulo(){
+    const equis = document.querySelectorAll('.center pd-b-25')
+    equis.forEach( function(element){
+        console.log(e);
     });
 }
 
@@ -234,7 +250,7 @@ const mostrarBuscador = () =>{
 mostrarBuscador();
 
 const buscadorPrestamos = () =>{
-    const resultado = document.querySelector('#PrestamosHechos'); 
+    const resultado = document.querySelector('#PrestamosHechos');
     document.querySelector('#texto-responsive').addEventListener('keyup',()=>{
         let texto = document.querySelector('#texto-responsive').value.toLowerCase(); 
         resultado.innerHTML = ``;
@@ -278,3 +294,11 @@ const buscadorPrestamos = () =>{
 const buscadorLogeado = ()=>{
     document.querySelector('.buscador-responsive').style="display: flex"
 }
+
+function validarusuario() {
+    if (localStorage.Nombre) {
+        let cambiarPaso = document.querySelector('.pasos p')
+        cambiarPaso.innerHTML= `<span>Paso 2</span> Crea un Prestamo`
+    }
+}
+

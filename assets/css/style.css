@@ -29,13 +29,13 @@ li a{
 
 nav .container- ul{
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     list-style: none;
     text-align: center;
 }
 
 nav .container- ul li{
-    padding: 15px 20px;
+    padding: 15px 15px;
     display: flex;
     align-items: center;
 }
@@ -142,7 +142,7 @@ img{
 
 
 .seccion-prestamista{
-    padding: 50px 0px;
+    padding: 10px 0px 50px 0px;
 }
 .contenido-prestamista{
     position: relative;
@@ -178,7 +178,7 @@ img{
 }
 
 .seccion-intrucciones h2{
-    padding: 30px 0px;
+    padding: 0px 0px 30px 0px;
     text-align: center;
 }
 
@@ -190,22 +190,19 @@ img{
 .seccion-intrucciones div p span{
     background-color: #FCB831;
     padding: 10px 20px;
-    border-radius: 50%;
+    border-radius: 20px;
     font-size: 22px;
 }
 .pasos{
-    width: 800px;
-    margin-left: auto;
-    margin-right: auto;
+    text-align:center;
 }
 .pasos p{
-    padding: 15px 0px;
     font-size: 20px;
 }
-.pasos p:hover{
-    background-color: #FCB831;
-    border-radius: 20px;
+.pasos span{
+    margin-right: 10px;
 }
+
 #form-datos div,
 .form-prestamos div{
     display: flex;
@@ -251,7 +248,6 @@ img{
     display: flex;
 }
 
-/* footer */
 .logo-sociales{
     display: flex;
     flex-direction: column;
@@ -453,6 +449,12 @@ input.palabra-look {
 .pd-b-25{
     padding-bottom: 25px;
 }
+.hidden{
+    display: none;
+}
+.filtro{
+    display: none;
+}
 
 @media (max-width: 1270px){
     .simbolos span:nth-child(2)::before{
@@ -487,7 +489,6 @@ input.palabra-look {
         align-items: center;
         flex-direction: column-reverse;
     }
-    
 
     .subtitulo-info {
         display: block;
@@ -506,9 +507,6 @@ input.palabra-look {
     .pasos{
         width: 100%;
     }
-    .container-{
-        width: 650px;
-    }
 
     .contenido-prestamista {
         width: 80%;
@@ -518,7 +516,7 @@ input.palabra-look {
 
 @media (max-width: 700px){
     .pasos{
-        width: 80%;
+        text-align: center;
     }
     .pasos p {
         font-size: 16px;
@@ -541,7 +539,7 @@ input.palabra-look {
         top: 0;
         height: auto;
 
-        -webkit-box-shadow: 15px 6px 24px 5px rgba(0,0,0,0.43); 
+        -webkit-box-shadow: 15px 6px 24px 5px rgba(0,0,0,0.43);
         box-shadow: 15px 6px 24px 5px rgba(0,0,0,0.43);
     }
     nav .container- ul {
@@ -559,7 +557,7 @@ input.palabra-look {
         position: fixed;
         bottom: 40px;
         right: 40px;
-        -webkit-box-shadow: 15px 6px 24px 5px rgba(0,0,0,0.43); 
+        -webkit-box-shadow: 15px 6px 24px 5px rgba(0,0,0,0.43);
         box-shadow: 15px 6px 24px 5px rgba(0,0,0,0.43);
     }
     .contenedor-hamburguesa{
@@ -575,11 +573,11 @@ input.palabra-look {
         background-color: #FCB831;
         border-radius: 25px;
     }
-    
+
     .linea:nth-child(2){
         display: none
     }
-    
+
     .linea:nth-child(3){
         top: 0;
         bottom: 0;
@@ -599,9 +597,6 @@ input.palabra-look {
     }
     .container- {
         width: 95%;
-    }
-    .pasos{
-        width:  90%;
     }
     .linea:nth-child(1){position: absolute;
         top: 0;
@@ -668,13 +663,6 @@ input.palabra-look {
     }
     .buscador-responsive{
         display: none;
-    }
-}
-
-@media (max-width: 625px){
-    .seccion-intrucciones div p:nth-child(even) {
-        flex-direction: row;
-
     }
 }
 
