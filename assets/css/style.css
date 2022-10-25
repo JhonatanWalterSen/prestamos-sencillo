@@ -115,7 +115,8 @@ img{
     padding: 40px 0px;
 }
 
-.cards{
+.cards,
+.cards-beneficios{
     max-width: 300px;
     width: 300px;
     text-align: center;
@@ -124,15 +125,16 @@ img{
     color: black;
     border-radius: 10px;
     box-shadow: -1px 4px 25px -5px rgba(0,0,0,0.75);
--webkit-box-shadow: -1px 4px 25px -5px rgba(0,0,0,0.75);
--moz-box-shadow: -1px 4px 25px -5px rgba(0,0,0,0.75);
+    -webkit-box-shadow: -1px 4px 25px -5px rgba(0,0,0,0.75);
+    -moz-box-shadow: -1px 4px 25px -5px rgba(0,0,0,0.75);
 }
-.cards:hover{
+.cards:hover,
+.cards-beneficios:hover{
     transform: scale(1.07);
     background-color: #FCB831;
 }
 
-.cards img{
+.cards-beneficios img{
     max-width: 80px;
 }
 
@@ -332,7 +334,6 @@ footer{
     padding: 40px 0px;
 }
 .contenido-cards{
-
     flex-wrap: wrap;
 }
 .rojo{
@@ -478,7 +479,8 @@ input.palabra-look {
     .container-{
         max-width: 800px;
     }
-    .cards {
+    .cards,
+    .cards-beneficios {
         max-width: 300px;
         width: 300px;
         margin: 20px 0px;
@@ -674,6 +676,10 @@ input.palabra-look {
     .buscador-responsive {
         width: 300px;
         height: 45px;
+    }
+    .datos-prestamos p{
+        width: 80%;
+        margin: auto;
     }
 }
 
